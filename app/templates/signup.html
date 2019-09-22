@@ -1,4 +1,40 @@
 {% extends 'layout.html' %}
 {% block content %}
     <h1>To sign up as a tutor please fill out the form below</h1>
+    <form action = "" method = "POST" novalidate>
+        {{  form.hidden_tag()  }}
+        <p>
+            {{  form.first_name.label  }} 
+            {{  form.first_name(size = 32)}}
+        </p>
+        <p>
+            {{  form.last_name.label  }} 
+            {{  form.last_name(size = 32)}}
+        </p>
+        <p>
+            {{  form.school_email.label  }} 
+            {{  form.school_email(size = 32)}}
+        </p>
+        <p>
+            {{  form.grade.label  }} 
+            <select>
+                {% for grade in form.grade %}
+                    <option value = "{{grade}}">
+                    </option>
+                {% endfor %}
+            </select>
+        </p>
+        <!-- <p>
+            {{  form.subject.label  }} 
+            <select>
+                {% for subject in form.subject %}
+                    <option value = "{{subject}}">
+                    </option>
+            {% endfor %}
+            </select>
+        </p> -->
+        <p>
+            {{  form.submit()  }}
+        </p>
+    </form>
 {% endblock %}

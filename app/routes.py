@@ -1,14 +1,19 @@
 from app import app
-from flask import escape, redirect, url_for, render_template
+from flask import escape, redirect, url_for, render_template, flash
+from forms import SignupForm
 
 @app.route('/')
 @app.route('/home')
 def home_page():
     return render_template('home.html')
 
-@app.route('/signup')
+@app.route('/signup', methods = ['GET', 'POST'])
 def tutor_signup():
-    return render_template('signup.html')
+    form = SignupForm()
+    if form.validate_on_submit():
+        flash(f'Tutor {form.first_name.data} is now signed up', 'success')
+        return redirect(url_for('home_page'))
+    return render_template('signup.html', title = 'Sign Up', form = form)
 
 @app.route('/request')
 def tutor_request():

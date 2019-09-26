@@ -1,4 +1,9 @@
 {% extends 'layout.html' %}
+<!-- <head>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+    <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script>
+    <script type="text/javascript" src="table.js"></script>
+</head> -->
 {% block content %}
     <h1>To sign up as a tutor please fill out the form below</h1>
     <form action = "" method = "POST" novalidate>
@@ -24,6 +29,49 @@
                 {% endfor %}
             </select>
         </p>
+        <p>
+            {{ form.subject.label }} <br>
+            {% for subject in form.subject %}
+                <input type = "checkbox" name = "Subject" value = "{{  subject  }}" ><br>
+            {% endfor %}
+        </p>
+        <p>
+            {{  form.time.label  }} <br>
+            <table>
+                <thead>
+                    <tr>
+                        <td align = "center">8:00 - 9:10</td>
+                        <td align = "center">9:40 - 10:50</td>
+                        <td align = "center">10:55 - 12:05</td>
+                    </tr>
+                </thead>
+                <tbdoy>
+                    <tr>
+                        {%  for time in form.time  %}
+                        <td>{{time}}</td>
+                        {%  endfor  %}
+                    </tr>
+                    <tr>
+                        <td>Hello</td>
+                    </tr>
+                </tbdoy>
+            </table>
+        </p>
+        <p>
+            <table>
+                <tbody>
+                    <tr>
+                        <td>good morning</td>
+                    </tr>
+                </tbody>
+            </table>
+        </p>
+        <!-- <p>
+            <div>
+                {{  form.subject.label  }}
+                {{  form.subject(rows = 3, multiple = True)}}
+            </div>
+        </p> -->
         <!-- <p>
             {{  form.subject.label  }} 
             <select>

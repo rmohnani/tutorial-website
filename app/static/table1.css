@@ -1,0 +1,18 @@
+td {
+    border-style:solid;
+    border-width:medium;
+    border-color:black;
+    padding: 5px;
+}
+
+thead, thead.select {
+    background-color: aqua;
+    border-color: brown;
+    border-style: dashed;
+    border-width: medium;
+    padding: 5px;
+}
+
+td.select {
+    background-color: yellow;
+}

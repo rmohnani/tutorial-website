@@ -3,10 +3,32 @@
     <head>
         <meta charset="utf-8">
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <!-- <script type="text/javascript" src = "../scripts/table.js">
+        alert("This is from Javascript");
+        </script> -->
+        
+
 
         <title>Tutorial</title>
-
+        
+        <!-- <script type = "text/javascript">
+        alert("This is from Javascript");
+        </script> -->
+        <!-- <script type = "text/javascript">
+            $( document ).ready(function() {
+                $("td").click(function() {
+                    $(this).toggleClass("select");
+                });
+            });
+        </script> -->
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script> -->
+        <!-- <script src="http://code.jquery.com/ui/1.9.2/jquery-ui.js"></script> -->
+        <!-- <script type="text/javascript" src="js/table.js"></script> -->
+         
         <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel = "stylesheet" type = "text/css" href = "/static/table1.css">      
+
     </head>
     <body>
         {% with messages = get_flashed_messages(with_categories=true) %}
@@ -19,5 +41,18 @@
         
         {% block content %}
         {% endblock %}
+        <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.8.3/jquery.min.js"></script>
+        <script type="text/javascript" src = "js/table.js"></script> -->
     </body>
+    <!-- <script type = "text/javascript" src = "../scripts/table.js"></script> -->
+    <!-- <script type = "text/javascript">
+        alert("This is from Javascript");
+    </script> -->
+    <script type = "text/javascript">
+        $( document ).ready(function() {
+            $("td").click(function() {
+                $(this).toggleClass("select");
+            });
+        });
+    </script>
 </html>

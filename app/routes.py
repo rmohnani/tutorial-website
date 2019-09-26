@@ -13,7 +13,9 @@ def tutor_signup():
     if form.validate_on_submit():
         flash(f'Tutor {form.first_name.data} is now signed up', 'success')
         return redirect(url_for('home_page'))
-    return render_template('signup.html', title = 'Sign Up', form = form)
+    else:
+        flash(f'Tutor {form.first_name.data} is not signed up', 'failure')
+        return render_template('signup.html', title = 'Sign Up', form = form)
 
 @app.route('/request')
 def tutor_request():

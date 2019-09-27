@@ -11,7 +11,7 @@ def home_page():
 def tutor_signup():
     form = SignupForm()
     if form.validate_on_submit():
-        flash(f'Tutor {form.first_name.data}, {form.last_name.data}, {form.school_email.data}, {form.grade.data} is now signed up')
+        flash(f'Tutor {form.first_name.data}, {form.last_name.data}, {form.school_email.data}, {form.grade_choices.data}, {form.subject.data} is now signed up')
         return redirect(url_for('home_page'))
     
     else:

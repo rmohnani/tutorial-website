@@ -23,12 +23,8 @@
             {{  form.school_email(size = 32)}}
         </p>
         <p>
-            {{  form.grade.label  }}
-            <select name = "grades-list">
-                {% for grade in form.grade %}
-                <option value = "{{grade.value}}">{{grade.label}}</option>
-                {% endfor %}
-            </select>
+            {{  form.grade_choices.label  }}
+            {{  form.grade_choices()  }}
         </p>
         <p>
             {{ form.subject.label }} <br>

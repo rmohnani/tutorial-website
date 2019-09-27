@@ -7,6 +7,8 @@
 {% block content %}
     <h1>To sign up as a tutor please fill out the form below</h1>
     <form action = "" method = "POST" novalidate>
+        {{  form.csrf_token  }}
+        {{  form.name  }}
         {{  form.hidden_tag()  }}
         <p>
             {{  form.first_name.label  }} 
@@ -21,18 +23,17 @@
             {{  form.school_email(size = 32)}}
         </p>
         <p>
-            {{  form.grade.label  }} 
-            <select>
+            {{  form.grade.label  }}
+            <select name = "grades-list">
                 {% for grade in form.grade %}
-                    <option value = "{{grade}}">
-                    </option>
+                <option value = "{{grade.value}}">{{grade.label}}</option>
                 {% endfor %}
             </select>
         </p>
         <p>
             {{ form.subject.label }} <br>
             {% for subject in form.subject %}
-                <input type = "checkbox" name = "Subject" value = "{{  subject  }}" ><br>
+                <input type = "checkbox" name = "Subject" value = "{{  subject.value  }}" >{{subject.label}}<br>
             {% endfor %}
         </p>
         <p>
@@ -40,24 +41,23 @@
             <table>
                 <thead>
                     <tr>
-                        <td align = "center">8:00 - 9:10</td>
-                        <td align = "center">9:40 - 10:50</td>
-                        <td align = "center">10:55 - 12:05</td>
+                        <td align = "center" class = "not-clickable">Day</td>
+                        <td align = "center" class = "not-clickable">8:00 - 9:10</td>
+                        <td align = "center" class = "not-clickable">9:40 - 10:50</td>
+                        <td align = "center" class = "not-clickable">10:55 - 12:05</td>
                     </tr>
                 </thead>
                 <tbdoy>
                     <tr>
+                        <td class = "not-clickable">Monday</td>
                         {%  for time in form.time  %}
                         <td>{{time}}</td>
                         {%  endfor  %}
                     </tr>
-                    <tr>
-                        <td>Hello</td>
-                    </tr>
                 </tbdoy>
             </table>
         </p>
-        <p>
+        <!-- <p>
             <table>
                 <tbody>
                     <tr>
@@ -65,7 +65,7 @@
                     </tr>
                 </tbody>
             </table>
-        </p>
+        </p> -->
         <!-- <p>
             <div>
                 {{  form.subject.label  }}
@@ -81,6 +81,11 @@
             {% endfor %}
             </select>
         </p> -->
+        <p>
+                {% if form.errors %}
+                {{ form.errors }}
+                {% endif %}
+        </p>
         <p>
             {{  form.submit()  }}
         </p>

@@ -1,5 +1,5 @@
 from app import app
-from flask import escape, redirect, url_for, render_template, flash
+from flask import escape, redirect, url_for, render_template, flash, request
 from forms import SignupForm
 
 @app.route('/')
@@ -11,11 +11,13 @@ def home_page():
 def tutor_signup():
     form = SignupForm()
     if form.validate_on_submit():
-        flash(f'Tutor {form.first_name.data} is now signed up', 'success')
+        flash(f'Tutor {form.first_name.data}, {form.last_name.data}, {form.school_email.data}, {form.grade.data} is now signed up')
         return redirect(url_for('home_page'))
+    
     else:
         flash(f'Tutor {form.first_name.data} is not signed up', 'failure')
         return render_template('signup.html', title = 'Sign Up', form = form)
+    
 
 @app.route('/request')
 def tutor_request():

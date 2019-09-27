@@ -49,10 +49,20 @@
         alert("This is from Javascript");
     </script> -->
     <script type = "text/javascript">
+        // $( document ).ready(function() {
+        //     $("td").click(function() {
+        //         $(this).toggleClass("select");
+        //     });
+        // });
+
         $( document ).ready(function() {
-            $("td").click(function() {
+            $('table tr th:not(.not-clickable), table tr td:not(.not-clickable)').on('click', function() {
+                // alert('Yeey! Is clickable');
                 $(this).toggleClass("select");
             });
         });
+        // document.getElementById("x").style.pointerEvents = "none";
+        
+
     </script>
 </html>

@@ -5,12 +5,9 @@ td {
     padding: 5px;
 }
 
-thead, thead.select {
+thead {
     background-color: aqua;
-    border-color: brown;
-    border-style: dashed;
-    border-width: medium;
-    padding: 5px;
+    /* padding: 5px; */
 }
 
 td.select {
